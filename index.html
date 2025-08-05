@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Presale Contributors</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.jsdelivr.net/npm/ethers@5.7.2/dist/ethers.umd.min.js"></script>
+</head>
+<body>
+  <h1>Presale Token Dashboard (HyperEVM)</h1>
+
+  <div class="stats">
+    <strong>Total Raised:</strong> <span id="totalRaised">Loading...</span> HYPE<br>
+    <strong>Total Contributors:</strong> <span id="totalContributors">Loading...</span>
+  </div>
+
+  <div class="form">
+    <button id="connectBtn">Connect Wallet</button>
+    <span id="walletAddress">Not Connected</span><br><br>
+
+    <input id="tokenAddress" placeholder="Token Contract Address" /><br>
+    <input id="decimals" type="number" placeholder="Token Decimals (e.g. 18)" /><br>
+    <input id="rate" type="number" placeholder="1 HYPE = ? Token" /><br>
+  </div>
+
+  <div class="actions">
+    <input type="text" id="search" placeholder="Search by address..." />
+    <button onclick="downloadCSV()">Download CSV</button>
+    <!--<button id="distributeBtn">Distribute All</button>-->
+    <button onclick="distributeAllWithContract()">Distribute All via Contract</button>
+  </div>
+
+  <h2>Contributor List</h2>
+  <div class="table-wrapper">
+    <table id="contributorTable">
+      <thead>
+        <tr>
+          <th>No</th>
+          <th>Address</th>
+          <th>Contribution (HYPE)</th>
+          <th>Timestamp</th>
+          <th>Send</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+  </div>
+
+  <h2>Simulation Preview</h2>
+  <div class="table-wrapper">
+    <table id="previewTable">
+      <thead>
+        <tr>
+          <th>No</th>
+          <th>Address</th>
+          <th>Contribution (HYPE)</th>
+          <th>Token Amount</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+  </div>
+
+  <script src="distribute1.js"></script>
+</body>
+</html>
